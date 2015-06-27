@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNovo.cshtml";
+}
+
+@Html.Partial("_Mensagens")
+
+<!-- widget grid -->
+<section id="widget-grid" class="">
+
+    <!-- START ROW -->
+    <div class="row">
+
+        <!-- NEW COL START -->
+        <article class="col-sm-12 col-md-12 col-lg-12">
+
+            <h2 style="text-align:center;margin-top:100px;">Iniciando...</h2>
+
+        </article>
+        <!-- END COL -->
+
+    </div>
+    <!-- END ROW-->
+
+</section>
+<!-- end grid -->
+
+@section scripts {
+@* Renderiza script de partial views *@
+@* @Html.EmitRequiredScripts() *@
+<script src="@Url.Content("~/Scripts/modulos/homeIndex.js")" type="text/javascript"></script>
+}

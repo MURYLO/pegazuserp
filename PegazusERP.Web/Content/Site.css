@@ -1,0 +1,261 @@
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000 !important;
+    background-color: #ffeeee !important;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+    margin-left: 30px;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Custom styles
+-----------------------------------------------------------*/
+
+.lower {
+    text-transform: lowercase;
+}
+
+#conteudo {
+    border: 1px solid red;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.page-numbers {
+    border: 0px;
+    margin: 2px;
+    padding: 4px;
+}
+
+a.page-numbers {
+    border: 1px solid #c5c5c5;
+}
+
+    a.page-numbers.current {
+        background-color: #ddd;
+        text-decoration: none;
+    }
+
+span.obrigatorio {
+    color: #FF0000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#logo {
+    margin-top: 0;
+}
+
+.btn-adicionar {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.empty-grid {
+    font-style: italic;
+    color: #aaa;
+    text-align: center;
+    font-size: 16px;
+}
+
+.table-hide-first thead th:nth-child(1) {
+    display: none;
+}
+
+.table-hide-first tbody td:nth-child(1) {
+    display: none;
+}
+
+.table-row-link tbody td {
+    cursor: pointer;
+}
+
+.recipiente-pagina {
+    border: 1px solid #ccc;
+    padding: 13px;
+    background-color: #fff;
+}
+
+.dt-toolbar-footer {
+    border-top: none;
+}
+
+.select2-hidden-accessible {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+#logo img {
+    margin-top: 7px;
+    margin-left: 0px;
+}
+
+label.obrigatorio::after {
+    content: " *";
+    color: #FF0000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.btn-agrupador-toobar {
+    margin-left: 10px;
+}
+
+/*.smart-form *[disabled]:not(input[type=submit]), .smart-form *[readonly], fieldset *[disabled]:not(input[type=submit]) {*/
+.smart-form *[readonly] {
+    cursor: not-allowed !important;
+    background-color: #f5f5f5 !important;
+    opacity: 1 !important;
+}
+
+#gridFrequencia .cellFrequencia {
+    cursor: pointer;
+}
+
+.barra-acoes-grid {
+    font-size: 14px;
+}
+
+.show-stat-microcharts .easy-pie-title {
+    width: 140px;
+}
+
+.visao-geral-modulacao .easy-pie-title{
+    width: 170px;
+}
+
+.graph-switch-g1 {
+    font-size: 12px !important;
+    position: absolute !important;
+    left: 33px;
+    top: 15px;
+    display: block;
+    z-index: 2;
+    font-weight: 700;
+    padding: 1px 61px 3px 7px;
+}
+
+.wid-map-canvas {
+    height: 300px;
+    width: 100%;
+}
+
+    .wid-map-canvas img {
+        max-width: none;
+    }
+
+.infoDiv {
+    height: 170px;
+    width: 300px;
+    -webkit-user-select: none;
+    background-color: white;
+}
+
+.infoDivAdmin {
+    width: 300px;
+    -webkit-user-select: none;
+    background-color: white;
+}
+
+.infoDiv h2 {
+    font-size: 17px;
+}
+
+
+table.scroll {
+    /* width: 100%; */ /* Optional */
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    border: 2px solid black;
+}
+
+.popover-custom {
+    padding: 9px 14px!important;
+}
+.popover-content {
+    padding: 9px 14px!important;
+ }
+.popover-title {
+    padding: 8px 14px!important;
+}
+
+.freqHoje {
+    background: #eee!important;
+}
+
+.grayItalic {
+    color:#ccc!important;
+    font-style:italic!important;
+}
+
+.displayGrade ol {
+    counter-reset: item;
+    padding-left: 15px !important;
+}
+
+.displayGrade li {
+    display: block;
+    margin: 5px 0!important;
+}
+
+.displayGrade li:before {
+    content: counters(item, ".") " - ";
+    counter-increment: item;
+}
+.displayGrade li p {
+    margin:10px 0;
+    font-weight: normal;
+    font-style: italic;
+    text-align: justify;
+}
+
+.so-para-impressao {
+    display:none;
+}
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+.sorted_table tbody tr {
+  cursor: move !important;
+}
+
+
+.filtro-avancado {
+    margin-top:20px;
+    display:none;
+}
+
+.table-middle tr{
+    vertical-align: middle;
+}
+
+a.disabled {
+    cursor: not-allowed !important;
+}
+
+body{
+    font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+}

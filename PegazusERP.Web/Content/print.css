@@ -1,0 +1,154 @@
+﻿@media print {
+
+    #content, #content * { 
+        font-size:11px;
+        left:0;
+        top:0;
+    }  
+
+    #content, #content:last-child
+    {
+        page-break-after: avoid;
+        width:100%;
+        margin: 0;
+        float:none;
+    }
+
+    table, td{
+        width:100%;
+    }
+
+    .select2-choice{
+        appearance: none;
+        text-decoration: none;
+        white-space:nowrap;
+    }
+
+    .text-align-center{
+        text-align: center !important;
+    }
+
+   th,td{
+       padding: 4px;
+       width: auto;
+       white-space: nowrap;
+    }
+
+    html,body{
+        height: auto;
+        font-size: 100%;
+    }
+
+    .page-footer, #shortcut, #left-panel, body header#header{
+        display:none;
+    }
+
+    .recipiente-pagina {
+        border:none;
+    }
+
+    * {
+        color: black;
+        background: white;
+    } 
+
+    #content {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .nao-imprimir {
+        display: none;
+    }
+
+    fieldset {
+        border: none;
+    }
+
+    fieldset {
+        font-size: 11px;
+    }
+
+    input, select, textarea {
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: none;
+    }
+
+    span.obrigatorio {
+        display: none;
+    }
+
+    label.obrigatorio::after {
+        content: "";
+    }
+
+    label.label::after {
+        content: ": ";
+    }
+
+    button {
+        display: none;
+    }
+
+    table, th, td {
+        font-size:10px;
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+
+    section {
+        float:left;
+        width:50%;
+    }
+
+    .so-para-impressao {
+        display:block;
+    }
+}
+/*
+* {
+background:transparent !important;
+color:#000 !important;
+text-shadow:none !important;
+filter:none !important;
+-ms-filter:none !important;
+}
+
+body {
+margin:0;
+padding:0;
+}
+
+@page {
+margin: 0.5cm;
+}
+
+aside {
+display:block;
+page-break-before: always;
+}
+
+.wrap { 
+width: 100%; 
+margin: 0; 
+float: none !important; 
+}
+
+body {
+font: 6pt Arial, Helvetica, sans-serif;
+color: #000;
+}
+
+.navbar, .breadcrumb { display: none; }
+
+thead { display: table-header-group; } 
+
+tfoot {  
+    display: table-footer-group; 
+    overflow: visible;
+} 
+*/

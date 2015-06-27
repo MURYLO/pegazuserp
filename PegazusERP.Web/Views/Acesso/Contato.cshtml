@@ -1,0 +1,129 @@
+﻿@model ContatoModel
+@{
+    ViewBag.Title = "Contato - Gestão Escolar";
+    Layout = "~/Views/Shared/_LayoutAcesso.cshtml";
+}
+<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="/Content/smart/js/libs/jquery-2.0.2.min.js"><\/script>');
+    }
+</script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+<div class="row">
+   
+    <h1 class="txt-color-red login-header-big">Contato</h1>
+
+    <p>Telefone: +55 (62) 3598 3055</p>
+    <p>Email: contato@pontoid.com.br</p>
+    <br />
+    <div class="clear clearfix"></div>
+    <hr />
+    <div>
+        <div class="widget-body no-padding">
+            @using (Html.BeginForm("Contato", "Acesso", FormMethod.Post, new { @class = "smart-form" }))
+            {
+                @Html.Partial("_Mensagens")
+                @Html.AntiForgeryToken()
+                <fieldset>
+                   <div>
+                        <section>
+                            <label class="label">Nome</label>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                @Html.TextBoxFor(model => model.Nome)
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Nome)
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-6">
+                            <label class="label">E-mail</label>
+                            <label class="input">
+                                <i class="icon-append fa fa-envelope-o"></i>
+                                @Html.TextBoxFor(model => model.Email)
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </section>
+                        <section class="col col-6">
+                            <label class="label">Telefone</label>
+                            <label class="input">
+                                <i class="icon-append fa fa-phone-square"></i>
+                                @Html.TextBoxFor(model => model.Telefone)
+                            </label>
+                        </section>
+                        @Html.ValidationMessageFor(model => model.Telefone)
+                    </div>
+
+                    <section>
+                        <label class="label">Assunto</label>
+                        <label class="input">
+                            <i class="icon-append fa fa-tag"></i>
+                            @Html.TextBoxFor(model => model.Assunto)
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Assunto)
+                    </section>
+
+                    <section>
+                        <label class="label">Mensagem</label>
+                        <label class="textarea">
+                            <i class="icon-append fa fa-comment"></i>
+                            @Html.TextAreaFor(model => model.Mensagem, new { @class = "custom-scroll", rows = "4" })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Mensagem)
+                    </section>
+                </fieldset>
+
+                <footer>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <a href="@Url.Action("Entrar")" class="btn btn-danger btn-sm pull-right">Voltar</a>
+                </footer>
+            }
+
+        </div>
+        <p>Gestão Escolar - Ponto iD Tecnologia © @DateTime.Now.Year</p>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        runAllForms();
+
+        $(function () {
+            // Validation
+            $("#login-form").validate({
+                // Rules for form validation
+                rules: {
+                    usuario: {
+                        required: true
+                        //, email : false
+                    },
+                    senha: {
+                        required: true,
+                        //minlength : 3,
+                        //maxlength : 20
+                    }
+                },
+
+                // Messages for form validation
+                messages: {
+                    usuario: {
+                        required: 'Por favor digite seu nome de ususário'
+                        //,email: 'Please enter a VALID email address'
+                    },
+                    senha: {
+                        required: 'Por favor digite sua senha'
+                    }
+                },
+
+                // Do not change code below
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element.parent());
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,162 @@
+﻿@model ContratoDeTrabalhoDTO
+
+@{  
+
+    var listaModulacao = Model
+                    .ListaDeModulacao.OfType<IModulacaoDTO>()
+                    .Where(x => x.Status == eStatusModulacao.Substituido || x.Status == eStatusModulacao.Afastado)
+                    .ToList<IModulacaoDTO>();
+
+    var listaModulacaoColaborador = Model
+        .ListaDeModulacaoColaborador.OfType<IModulacaoDTO>()
+        .Where(x => x.Status == eStatusModulacao.Substituido || x.Status == eStatusModulacao.Afastado)
+        .ToList<IModulacaoDTO>();
+
+    listaModulacao.AddRange(listaModulacaoColaborador);
+
+    var tipo = listaModulacao.FirstOrDefault() == null ? (eTipoCargo?)null : listaModulacao.First().Tipo;
+}
+
+<div id="dialog_confirmar" title="Encerrar Afastamento" class="smart-form"> 
+    @Html.Hidden("tipo", tipo)
+   
+    <div style="width:98%;margin:10px 0">        
+        <div class="alert alert-warning fade in">            
+            <button class="close" data-dismiss="alert">
+                × 
+            </button>
+            <i class="fa-fw fa fa-warning"></i>
+            <strong>Atenção!</strong> Esta operação não poderá ser desfeita.            
+        </div>
+        @if (listaModulacao.Any())
+        {
+            <p>
+                Você está encerrando este afastamento. No entanto, existe modulação com o status <strong>Substituída</strong> e/ou <strong>Afastada</strong>.
+                Favor informar qual modulação será mantida para o colaborador que está retornado ao trabalho.
+            </p>
+           <p> Caso nenhuma seja selecionada, todas serão mantidas para o colaborador substituto e as destes colaborador serão encerradas.</p>
+            <br />
+        }
+        else
+        {
+            <p>Tem certeza que deseja continuar?</p>
+        }                
+            
+         @if (tipo.HasValue)
+         {
+             if(tipo.Value == eTipoCargo.Administrativo){                 
+                   
+            
+                    <fieldset>                       
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-condensed table-hover smart-form table-row-link sorted_table" id="gridModulacaoColaborador">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox-inline" id="checkbox-modular">
+                                                <i></i>
+                                            </label>
+                                        </th>
+                                        <th><strong>Contrato</strong></th>
+                                        <th><strong>Cargo</strong></th>
+                                        <th><strong>Escola</strong></th>
+                                        <th><strong>Turno</strong></th>
+                                        <th><strong>Início</strong></th>
+                                        <th><strong>Fim</strong></th>
+                                        <th><strong>Status</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                @foreach (var modulacao in listaModulacao)
+                                {
+                                        var modulacaoColaborador = modulacao as ModulacaoColaboradorDTO;
+                                   
+                                        <tr>
+                                            <td>
+                                                <label class="checkbox">
+                                                    @Html.CheckBox(string.Format("chkbox_modulacao_{0}", modulacao.Id), false)
+
+                                                    <i></i>
+                                                </label>
+                                            </td>
+                                            <td data-id="@modulacao.Id">@modulacaoColaborador.ContratoDeTrabalhoMatricula</td>
+                                            <td>@(string.Format("{0} - {1}", modulacaoColaborador.NivelDoCargoCargoDescricao, modulacaoColaborador.NivelDoCargoDescricao))</td>
+                                            <td>@modulacaoColaborador.EscolaNomeFantasia</td>
+                                            <td>@modulacaoColaborador.Turno</td>
+                                            <td>@(modulacaoColaborador.DataInicio.HasValue ? modulacaoColaborador.DataInicio.Value.ToShortDateString() : "")</td>
+                                            <td>@(modulacaoColaborador.DataFim.HasValue ? modulacaoColaborador.DataFim.Value.ToShortDateString() : "")</td>
+                                            <td>@(Function.GetEnumDescription(modulacaoColaborador.Status))</td>
+                                        </tr> 
+                                    }            
+                                                           
+                                </tbody>
+                            </table>
+                        </div>
+                    </fieldset>            
+                      
+                 
+             }
+             else
+             {                 
+                    <fieldset>                      
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-condensed table-hover smart-form table-row-link sorted_table" id="gridModulacao">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox-inline" id="checkbox-modular">
+                                                <i></i>
+                                            </label>
+                                        </th>
+                                        <th><strong>Contrato</strong></th>
+                                        <th><strong>Turma</strong></th>
+                                        <th><strong>Disciplina</strong></th>
+                                        <th><strong>Escola</strong></th>
+                                        <th><strong>Início</strong></th>
+                                        <th><strong>Fim</strong></th>
+                                        <th><strong>Status</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>  
+                                @foreach (var modulacao in listaModulacao)
+                                {
+
+                                    var modulacaoProfessor = modulacao as ModulacaoDTO;                                 
+                                    <tr>
+                                        <td>
+                                            <label class="checkbox">
+                                                @Html.CheckBox(string.Format("chkbox_modulacao_{0}", modulacao.Id), false)
+
+                                                <i></i>
+                                            </label>
+                                        </td>
+                                        <td data-id="@modulacaoProfessor.Id">@modulacaoProfessor.ContratoDeTrabalhoMatricula</td>
+                                        <td>@modulacaoProfessor.TurmaDescricao</td>
+                                        <td>@modulacaoProfessor.GradeEscolarDisciplinaNome</td>
+                                        <td>@modulacaoProfessor.TurmaEscolaNomeFantasia</td>
+                                        <td>@(modulacaoProfessor.DataInicio.HasValue ? modulacao.DataInicio.Value.ToShortDateString() : "")</td>
+                                        <td>@(modulacaoProfessor.DataFim.HasValue ? modulacao.DataFim.Value.ToShortDateString() : "")</td>
+                                        <td>@(Function.GetEnumDescription(modulacaoProfessor.Status))</td>
+                                    </tr> 
+                               }                                     
+                                </tbody>
+                            </table>
+                        </div>
+                    </fieldset>   
+             }             
+         }        
+            
+    </div>
+    <footer>         
+        <button type="button" class="btn btn-primary" id="btn_confirmar"><i class="fa fa-save"></i> Salvar</button>
+        <button type="button" class="btn btn-default" id="btn_fechar_dialog"><i class="fa fa-times"></i> Cancelar</button>        
+    </footer>    
+    <script>
+        $("#checkbox-modular").change(function (e) {
+            $("[name^='chkbox_modulacao']").prop("checked", e.currentTarget.checked);
+        });
+    </script>
+</div>

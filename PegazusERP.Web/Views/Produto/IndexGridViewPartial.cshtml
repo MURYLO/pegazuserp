@@ -1,0 +1,29 @@
+﻿@model PegazusERP.Web.Models.PagedList<PegazusERP.DTO.ProdutoDTO>
+
+<div id="grid">
+    @{
+        var grid = new WebGrid(null, rowsPerPage: Model.PageSize, ajaxUpdateContainerId: "grid", ajaxUpdateCallback: "onGridLoadCallBack('" + Model.GridId + "');" + Model.ExecutarScripts);
+        grid.Bind(Model.Entities, rowCount: Model.TotalRecords, autoSortAndPage: false);
+    }
+    @grid.Table(
+        columns: grid.Columns(
+        grid.Column(null, null, format: @<input type="hidden" name="url" value="@Url.Action("Editar", new { id = item.Id })" />),
+        grid.Column("Nome", "Nome"),
+        grid.Column("Unidade", "Unidade"),
+        grid.Column("Custo", "Custo"),
+        grid.Column("Venda", "Venda"),
+        grid.Column(columnName: "Ativo", header: "Ativo", canSort: true, format:
+        @<text>
+            @if (item.Ativo)
+            {
+                @:<i class="fa fa-check text-success" title="Ativo"></i>
+            }
+            else
+            {
+                @:<i class="fa fa-times text-danger" title="Inativo"></i>
+            }
+        </text>)
+        )
+        , footer: @<div>@Html.Partial("_GridPaginacao")</div>
+                    , tableStyle: "table table-hover table-hide-first table-row-link")
+</div>

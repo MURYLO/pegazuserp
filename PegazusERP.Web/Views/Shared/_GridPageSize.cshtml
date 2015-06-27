@@ -1,0 +1,15 @@
+﻿<div class="col-sm-6 col-xs-12 hidden-xs">
+    <div class="dataTables_length" id="dt_basic_length">
+        <label>
+            @Html.DropDownList("PageSize", new List<SelectListItem> {
+                                        new SelectListItem { Text = "10", Value = "10" },
+                                        new SelectListItem { Text = "25", Value = "25" },
+                                        new SelectListItem { Text = "50", Value = "50" },
+                                        new SelectListItem { Text = "100", Value = "100" } },
+                                        new { @class = "form-control" })
+        </label>
+    </div>
+</div>
+@*
+@Html.RequireScript("/Scripts/gridPageSize.js")
+*@

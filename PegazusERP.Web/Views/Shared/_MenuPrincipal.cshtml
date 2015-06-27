@@ -1,0 +1,29 @@
+﻿
+<ul>
+    <li>
+        <a href="javascript:;" title="Dashboard" onclick="CarregarPaginaAjax('@Url.Action("Index", "Dashboard")')"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Painel Principal </span></a>
+    </li>
+    <li>
+        <a href="javascript:;"><i class="fa fa-lg fa-fw fa-edit"></i> <span class="menu-item-parent">Pessoa</span></a>
+        <ul>
+            <li>
+                <a href="javascript:;" onclick="CarregarPaginaAjax('@Url.Action("Index", "Pessoa")')">Pessoa</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript:;"><i class="fa fa-lg fa-fw fa-cubes"></i> <span class="menu-item-parent">Produto</span></a>
+        <ul>
+            <li>
+                <a href="javascript:;" onclick="CarregarPaginaAjax('@Url.Action("Index", "CategoriaProduto")')">Categoria</a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="CarregarPaginaAjax('@Url.Action("Index", "MarcaProduto")')">Marca</a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="CarregarPaginaAjax('@Url.Action("Index", "Produto")')">Produto</a>
+            </li>
+        </ul>
+    </li>
+
+</ul>

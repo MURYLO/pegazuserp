@@ -1,0 +1,47 @@
+﻿CREATE TABLE municipio
+(
+municipio_id int IDENTITY(1,1) PRIMARY KEY,
+descricao varchar(100) NOT NULL
+)
+GO
+
+CREATE TABLE [dbo].[tab_usuario](
+[Id] [int] IDENTITY(1,1) PRIMARY KEY,
+[Cpf] [nvarchar](14) NOT NULL,
+[Senha] [nvarchar](10) NOT NULL,
+[Nomeusuario] [nvarchar](50) NOT NULL,
+[Cargo] [nvarchar](50) NULL,
+[Email] [nvarchar](50) NOT NULL,
+[Ativo] [int] NOT NULL,
+[Permissao] [int] NOT NULL,
+[Tipoproponente] [int] NOT NULL,
+[Localtrabalho] [nvarchar] (60) NULL,
+[Telefone] [nvarchar](12) NULL,
+[Municipio] [int] NULL,
+[CnpjProponente] [nvarchar](18) NULL,
+[Nomeproponente] [nvarchar](50) NULL,
+[Respinstitucional] [nvarchar](50) NULL,
+[Cpfinstitucional] [nvarchar](14) NULL,
+[Cargorespinst] [nvarchar](50) NULL
+
+ )
+
+GO
+
+CREATE TABLE workflow_solicitacao
+(
+ workflow_solicitacao_id int IDENTITY(1,1) PRIMARY KEY,
+ usuario_id int not null,
+ num_oficio nvarchar(20) not null,
+ objeto nvarchar(500) not null,
+ valor_solicitado decimal(18,2) not null,
+ valor_contrapartida decimal(18,2) not null,
+ valor_total decimal(18,2) not null,
+ data_primeiro_envio datetime2 not null,
+ data_ultima_atualizacao datetime2 null,
+ status int not null,
+ tipo_checklist int not null,
+ CONSTRAINT FK_wf_solicitacao_usuario FOREIGN KEY (workflow_solicitacao_id) 
+    REFERENCES tab_usuario (Id) 
+);
+GO

@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <title>Gestão Escolar</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap/css/datepicker.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/select2/select2.css")" rel="stylesheet" type="text/css" media="screen" />
+    <link href="@Url.Content("~/Content/print.css")" rel="stylesheet" type="text/css" media="print"/>
+
+    <style type="text/css">
+        body 
+        {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        
+        .sidebar-nav 
+        {
+            padding: 9px 0;
+        }      
+        
+      @@media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }      
+      
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="@Url.Content("~/Scripts/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootbox.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap-datepicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap-datepicker.pt.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.maskMoney.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.maskedinput-1.3.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/select2/select2.min.js")" type="text/javascript"></script>
+
+    @*
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    *@
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                
+                <a class="brand" href="/Admin"></a>
+
+                <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav">
+                        <li>@Html.ActionLink("Home", "Index", "Admin")</li>
+                        <li>@Html.ActionLink("Tenants", "Index", "Tenant")</li>
+                        <li>@Html.ActionLink("Comunicação", "Index", "Comunicacao")</li>
+                        <li>@Html.ActionLink("Sair", "Sair", "Acesso")</li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div>
+        </div><!-- /navbar-inner -->
+    </div>
+
+    <div class="container-fluid">
+
+        @if (!string.IsNullOrWhiteSpace(ViewBag.AlertSuccess))
+        {
+            <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <h4>Sucesso!</h4>
+              @ViewBag.AlertSuccess
+            </div>    
+        }
+        
+        @if (!string.IsNullOrWhiteSpace(ViewBag.AlertError))
+        {
+            <div class="alert alert-error">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <h4>Atenção!</h4>
+              @ViewBag.AlertError
+            </div>    
+        }
+
+        @RenderBody()
+
+        <hr>
+
+        <footer>
+            <p>&copy; Ponto iD 2013</p>
+        </footer>
+    </div>
+
+    <script src="@Url.Content("~/Scripts/application.js")" type="text/javascript"></script>
+  </body>
+</html>

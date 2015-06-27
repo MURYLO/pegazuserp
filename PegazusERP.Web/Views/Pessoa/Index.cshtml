@@ -1,0 +1,36 @@
+﻿@{
+}
+
+@Html.Partial("_Mensagens")
+
+
+<div class="recipiente-pagina">
+    
+    <h4><i class="fa fa-table"></i> Consulta de Pessoas</h4>
+    <br />
+
+    @using (Ajax.BeginForm("IndexGrid", "Pessoa", new AjaxOptions { UpdateTargetId = "grid-partial", InsertionMode = InsertionMode.Replace, HttpMethod = "Post", OnFailure = "OnFailure" }, new { id = "searchForm" }))
+    {
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <input type="search" class="form-control" id="searchTerm" placeholder="pesquisar..." name="searchTerm" value="@ViewBag.SearchTerm">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <button type="button" class="btn btn-primary pull-right" onclick="CarregarPaginaAjax('@Url.Action("Editar", "Pessoa")')"><i class="fa fa-plus"></i> Adicionar</button>
+            </div>
+        </div>
+    }
+
+    <br />
+    <div id="grid-partial">
+        @Html.Partial("IndexGridViewPartial")
+    </div>
+
+</div>
+<script src="@Url.Content("~/Scripts/modulos/pessoaIndex.js")" type="text/javascript"></script>

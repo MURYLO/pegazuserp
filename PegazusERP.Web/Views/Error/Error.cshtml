@@ -1,0 +1,60 @@
+﻿@model Exception
+@{
+    if (Request.IsAjaxRequest())
+    {
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutNovo.cshtml";
+    }
+}
+
+<div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    @if (Model.GetType().IsAssignableFrom(typeof (AutorizacaoException)))
+    {
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center error-box">
+                    <h4><i class="fa fa-ban text-danger"></i> @Model.Message</h4><br />
+                    <p class="semi-bold">
+                        <small>
+                            Favor entrar em contato com o administrador do sistema.
+                        </small>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center error-box">
+                    <h4><i class="fa fa-times-circle text-danger"></i> Não foi possível estabelecer uma conexão com o servidor.</h4><br />
+                    <p class="semi-bold">
+                        <small>
+                            Por favor, aguarde alguns instantes e tente novamente.
+                        </small>
+                    </p>
+                    @if (Function.IsDebugMode())
+                    {
+                        if (Model != null)
+                        {
+                            <p>Detalhes do erro:</p>
+                            <p>@Model.Message</p>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+
+    </div>
+
+</div>
+<!-- end row -->

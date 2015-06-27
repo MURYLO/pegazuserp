@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Saiba Mais - Gestão Escolar";
+    Layout = "~/Views/Shared/_LayoutAcesso.cshtml";
+}
+
+<div class="row">
+   
+    <h1 class="txt-color-red login-header-big">Saiba Mais</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et eros arcu. Morbi fringilla, mi suscipit molestie venenatis, mauris lectus pellentesque nisi, ut elementum augue velit in ligula. Nunc nec orci a velit auctor dapibus id ac purus. Proin ut dolor lorem. Sed placerat suscipit sagittis. Proin nunc metus, viverra id arcu eu, dapibus aliquet lacus. Vivamus luctus ornare egestas.</p>
+
+    <p>Nunc congue venenatis erat a vulputate. Nam pellentesque magna lorem, eu pretium felis varius a. Vivamus nibh ipsum, pharetra in nibh sit amet, pretium interdum quam. Ut vel justo interdum, cursus odio eget, convallis magna. Quisque vitae ante nulla. Suspendisse dui lorem, condimentum vitae suscipit ac, scelerisque eget tellus. Cras quis bibendum eros. Aliquam justo nulla, sodales maximus arcu sed, luctus tempor purus. Etiam suscipit turpis vel justo dictum convallis id id ipsum. Nulla non est sit amet dolor rutrum commodo sed sed ipsum. Duis felis leo, scelerisque et commodo non, accumsan vitae neque.</p>
+
+    <p>Quisque facilisis nisl non felis feugiat, vel laoreet massa euismod. Integer tincidunt, nibh a molestie elementum, eros quam gravida metus, vitae luctus augue neque sed sapien. Aenean vitae vestibulum diam, a convallis sapien. Sed id accumsan nulla. Cras id convallis turpis. Nullam id aliquet eros. Quisque feugiat orci eu felis condimentum, nec malesuada lacus aliquam. Vestibulum nulla nunc, dictum ut diam sed, consectetur tincidunt quam</p>.
+
+    <p>In nec nunc et mauris fringilla imperdiet. Phasellus ultrices sed est sed iaculis. Proin congue sit amet sapien in pretium. Nunc ut eros accumsan, commodo sem ac, rutrum massa. Nam hendrerit tortor sed venenatis rutrum. Proin ut ultrices velit. In sed nibh nec leo condimentum sagittis ac id nisi. Pellentesque urna ipsum, feugiat dictum egestas nec, porta ultricies mi. Curabitur dapibus ullamcorper magna, ut tincidunt est tincidunt a.</p>
+
+    <p>justo risus, tincidunt nec vulputate at, tincidunt id velit. Donec a elementum justo. Fusce eu mattis urna. Nunc a tellus a risus tincidunt venenatis. Cras vulputate laoreet nisi ac sollicitudin. Donec efficitur mauris dui. Suspendisse finibus nec lorem nec finibus. Nullam ultrices sollicitudin neque vitae viverra. Duis porttitor tellus luctus nisi maximus maximus. Donec ac bibendum sem. Nullam congue ultricies nisi, quis suscipit dui hendrerit ut. Curabitur suscipit at leo pretium pharetra. Morbi tortor lacus, euismod a pellentesque malesuada, interdum sit amet sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+   
+    <br />
+    <div>
+        <a href="@Url.Action("Entrar")" class="btn btn-danger btn-sm pull-right">Voltar</a>
+    </div>
+    <div class="clear clearfix"></div>
+    <hr />
+    <p>Gestão Escolar - Ponto iD Tecnologia © @DateTime.Now.Year</p>
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        runAllForms();
+
+        $(function () {
+            // Validation
+            $("#login-form").validate({
+                // Rules for form validation
+                rules: {
+                    usuario: {
+                        required: true
+                        //, email : false
+                    },
+                    senha: {
+                        required: true,
+                        //minlength : 3,
+                        //maxlength : 20
+                    }
+                },
+
+                // Messages for form validation
+                messages: {
+                    usuario: {
+                        required: 'Por favor digite seu nome de ususário'
+                        //,email: 'Please enter a VALID email address'
+                    },
+                    senha: {
+                        required: 'Por favor digite sua senha'
+                    }
+                },
+
+                // Do not change code below
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element.parent());
+                }
+            });
+        });
+    </script>
+}

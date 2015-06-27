@@ -1,0 +1,21 @@
+﻿@{
+    
+    var erros = ViewContext.ViewData.ModelState;
+}
+
+@if (erros.Any())
+{
+<div style="padding:10px;">
+    @foreach (var item in erros)
+    {
+        var erro = item.Value.Errors[0].ErrorMessage;
+        <div class="alert alert-warning fade in">
+            <button class="close" data-dismiss="alert">
+                ×
+            </button>
+            <i class="fa-fw fa fa-warning"></i>
+            @erro
+        </div>
+    }
+</div>
+}

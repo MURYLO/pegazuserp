@@ -1,0 +1,44 @@
+﻿@model PegazusERP.DTO.CategoriaProdutoDTO
+
+@{
+    var addEdit = Model.Id == 0 ? "Adicionar" : "Editar";
+}
+
+@Html.Partial("_Mensagens")
+<div class="recipiente-pagina">
+
+    <h4><i class="fa fa-edit"></i> @addEdit Categoria Produto</h4>
+
+    @using (Ajax.BeginForm("POSTEditar", "CategoriaProduto", new AjaxOptions { UpdateTargetId = "content", InsertionMode = InsertionMode.Replace, HttpMethod = "Post", OnFailure = "OnFailure", OnSuccess = "OnSuccess" }, new { @class = "smart-form" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+
+        <fieldset>
+            <div>
+                <section>
+                    <label for="Nome" class="label obrigatorio">Nome</label>
+                    <label class="input">
+                        @Html.TextBoxFor(model => model.Nome, new { maxlength = "60" })
+                    </label>
+                    @Html.ValidationMessageFor(model => model.Nome)
+                </section>
+            </div>
+        </fieldset>
+  
+        <footer>
+            <button type="submit" class="btn btn-primary" data-loading-text="Salvando..."><i class="fa fa-save"></i> Salvar</button>
+            @if (Model.Id > 0)
+            {
+                <button type="button" class="btn btn-danger" id="btn_excluir"><i class="fa fa-trash-o"></i> Excluir</button>
+            }
+            <button type="button" class="btn btn-default" onclick="CarregarPaginaAjax('@Url.Action("Index", "CategoriaProduto")')"><i class="fa fa-arrow-left"></i> Voltar</button>
+        </footer>
+    }
+
+</div>
+<script src="@Url.Content("~/Scripts/modulos/categoriaProdutoEditar.js")" type="text/javascript"></script>
+
+
+

@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Recuperar Senha - Gestão Escolar";
+    Layout = "~/Views/Shared/_LayoutAcesso.cshtml";
+}
+
+<div class="row">
+
+    @Html.Partial("_TelaInicial")
+
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+        <div class="well no-padding">
+            @using (Html.BeginForm("RecuperarSenha", "Acesso", FormMethod.Post, new { id = "login-form", @class = "smart-form client-form" }))
+            {
+                @Html.AntiForgeryToken()
+                <header>
+                    Recuperar Senha
+                </header>
+
+                <fieldset>
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.AlertError))
+                    {
+                        <p style="color:red">@ViewBag.AlertError</p><br />
+                    }
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.AlertSuccess))
+                    {
+                        <p style="color:green">@ViewBag.AlertSuccess</p><br />
+                    }
+                    <section>
+                        <label class="label">Nome de usuário</label>
+                        <label class="input">
+                            <i class="icon-append fa fa-user"></i>
+                            <input type="text" name="usuario" value="@ViewBag.Usuario">
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Digite seu nome de usuário</b>
+                        </label>
+                    </section>
+                    <section>
+                        <p>Informe seu nome de usuário. Em seguida, clique no botão Recuperar.</p>
+                        <br />
+                        <p>Um e-mail com as instruções de como recuperar sua senha será enviado para seu e-mail cadastrado no sistema.</p>
+                    </section>
+                </fieldset>
+                <footer>
+                    <button type="submit" class="btn btn-primary">Recuperar</button>
+                    <a href="@Url.Action("Entrar", "Acesso")" class="btn btn-info">Voltar</a>
+                </footer>
+            }
+
+        </div>
+
+        @Html.Partial("_Social")
+
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        runAllForms();
+
+        $(function () {
+            // Validation
+            $("#login-form").validate({
+                // Rules for form validation
+                rules: {
+                    usuario: {
+                        required: true
+                        //, email : false
+                    }
+                },
+
+                // Messages for form validation
+                messages: {
+                    usuario: {
+                        required: 'Por favor digite seu nome de ususário'
+                        //,email: 'Please enter a VALID email address'
+                    }
+                },
+
+                // Do not change code below
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element.parent());
+                }
+            });
+        });
+    </script>
+}

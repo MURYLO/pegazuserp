@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Redefinir Senha - Gestão Escolar";
+    Layout = "~/Views/Shared/_LayoutAcesso.cshtml";
+}
+
+<div class="row">
+    
+    @Html.Partial("_TelaInicial")
+
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+        <div class="well no-padding">
+            @using (Html.BeginForm("RedefinirSenha", "Acesso", FormMethod.Post, new { id = "login-form", @class = "smart-form client-form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("token", ViewBag.Token as string)
+                <header>
+                    Redefinir Senha
+                </header>
+
+                <fieldset>
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.AlertError))
+                    {
+                        <p style="color:red">@ViewBag.AlertError</p><br />
+                    }
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.AlertSuccess))
+                    {
+                        <p style="color:green">@ViewBag.AlertSuccess</p><br />
+                    }
+                    <section>
+                        <label class="label">Nova senha</label>
+                        <label class="input">
+                            <i class="icon-append fa fa-lock"></i>
+                            <input type="password" name="senha">
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Digite a nova senha</b>
+                        </label>
+                    </section>
+
+                    <section>
+                        <label class="label">Confirme a nova senha</label>
+                        <label class="input">
+                            <i class="icon-append fa fa-lock"></i>
+                            <input type="password" name="confirma">
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Confirme a nova senha</b>
+                        </label>
+                    </section>
+
+                </fieldset>
+                <footer>
+                    <button type="submit" class="btn btn-primary">Redefinir</button>
+                    <a href="@Url.Action("Entrar", "Acesso")" class="btn btn-info">Voltar</a>
+                </footer>
+            }
+
+        </div>
+
+        @Html.Partial("_Social")
+
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        runAllForms();
+
+        $(function () {
+            // Validation
+            $("#login-form").validate({
+                // Rules for form validation
+                rules: {
+                    usuario: {
+                        required: true
+                        //, email : false
+                    },
+                    senha: {
+                        required: true,
+                        //minlength : 3,
+                        //maxlength : 20
+                    }
+                },
+
+                // Messages for form validation
+                messages: {
+                    senha: {
+                        required: 'Digite a nova senha'
+                        //,email: 'Please enter a VALID email address'
+                    },
+                    confirma: {
+                        required: 'Confirme a nova senha'
+                    }
+                },
+
+                // Do not change code below
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element.parent());
+                }
+            });
+        });
+    </script>
+}

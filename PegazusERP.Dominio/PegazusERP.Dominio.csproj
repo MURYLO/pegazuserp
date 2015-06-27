@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E4D907D-B43B-41D1-8A12-7849779E3EA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PegazusERP.Dominio</RootNamespace>
+    <AssemblyName>PegazusERP.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregates\EnderecoAgg\Endereco.cs" />
+    <Compile Include="Aggregates\PessoaAgg\Contato.cs" />
+    <Compile Include="Aggregates\PessoaAgg\IPessoaRepository.cs" />
+    <Compile Include="Aggregates\PessoaAgg\Pessoa.cs" />
+    <Compile Include="Aggregates\PessoaAgg\PessoaFactory.cs" />
+    <Compile Include="Aggregates\PessoaAgg\PessoaSpecification.cs" />
+    <Compile Include="Aggregates\ProdutoAgg\CategoriaProduto.cs" />
+    <Compile Include="Aggregates\ProdutoAgg\ICategoriaProdutoRepository.cs" />
+    <Compile Include="Aggregates\ProdutoAgg\IMarcaProdutoRepository.cs" />
+    <Compile Include="Aggregates\ProdutoAgg\IProdutoRepository.cs" />
+    <Compile Include="Aggregates\ProdutoAgg\MarcaProduto.cs" />
+    <Compile Include="Aggregates\ProdutoAgg\Produto.cs" />
+    <Compile Include="Aggregates\ProdutoAgg\ProdutoFactory.cs" />
+    <Compile Include="Aggregates\ProdutoAgg\ProdutoSpecifications.cs" />
+    <Compile Include="Aggregates\UsuarioAgg\IUsuarioRepository.cs" />
+    <Compile Include="Aggregates\UsuarioAgg\Usuario.cs" />
+    <Compile Include="Aggregates\UsuarioAgg\UsuarioFactory.cs" />
+    <Compile Include="Aggregates\UsuarioAgg\UsuarioSpecification.cs" />
+    <Compile Include="Base\Entity.cs" />
+    <Compile Include="Base\IRepository.cs" />
+    <Compile Include="Base\IUnitOfWork.cs" />
+    <Compile Include="Base\IValidator.cs" />
+    <Compile Include="Base\Specification\AndSpecification.cs" />
+    <Compile Include="Base\Specification\CompositeSpecification.cs" />
+    <Compile Include="Base\Specification\DirectSpecification.cs" />
+    <Compile Include="Base\Specification\ExpressionBuilder.cs" />
+    <Compile Include="Base\Specification\ISpecification.cs" />
+    <Compile Include="Base\Specification\NotSpecification.cs" />
+    <Compile Include="Base\Specification\OrSpecification.cs" />
+    <Compile Include="Base\Specification\ParameterRebinder.cs" />
+    <Compile Include="Base\Specification\Specification.cs" />
+    <Compile Include="Base\StringValue.cs" />
+    <Compile Include="Base\TypeExtensions.cs" />
+    <Compile Include="Base\Util.cs" />
+    <Compile Include="Enums\eAtivo.cs" />
+    <Compile Include="Enums\eEstado.cs" />
+    <Compile Include="Enums\eObjetivoComercial.cs" />
+    <Compile Include="Enums\eNaturezaEconomica.cs" />
+    <Compile Include="Enums\ePermissao.cs" />
+    <Compile Include="Enums\ePessoa.cs" />
+    <Compile Include="Enums\eSexo.cs" />
+    <Compile Include="Enums\eTipoContato.cs" />
+    <Compile Include="Enums\eTipoEndereco.cs" />
+    <Compile Include="Enums\eTipoNcm.cs" />
+    <Compile Include="Enums\eTipoPesssoa.cs" />
+    <Compile Include="Enums\eTipoProduto.cs" />
+    <Compile Include="Enums\eUnidade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
