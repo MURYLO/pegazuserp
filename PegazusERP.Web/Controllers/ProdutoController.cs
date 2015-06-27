@@ -50,7 +50,7 @@ namespace PegazusERP.Web.Controllers
             try
             {
                 ConfigureGrid(pagedList);
-                return View("IndexGridViewPartial", pagedList );
+                return View("IndexGridViewPartial", pagedList);
             }
             catch (Exception ex)
             {
