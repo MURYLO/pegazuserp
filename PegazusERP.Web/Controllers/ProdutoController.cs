@@ -17,7 +17,7 @@ namespace PegazusERP.Web.Controllers
 
         private readonly IProdutoAppService _produtoAppService;
         private readonly ICategoriaProdutoAppService _categoriaProdutoAppService;
-        private readonly IMarcaProdutoAppService _marcaProdutoAppService;
+        private readonly IMarcaProdutoAppService  _marcaProdutoAppService;
 
         public ProdutoController(IProdutoAppService produtoAppService,
                                 ICategoriaProdutoAppService categoriaProdutoAppService,
