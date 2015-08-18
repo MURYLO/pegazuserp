@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PegazusERP.Web", "PegazusERP.Web\PegazusERP.Web.csproj", "{52144162-A405-4083-BD03-598E0DA8A4BF}"
 EndProject
@@ -14,27 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PegazusERP.Aplicacao", "PegazusERP.Aplicacao\PegazusERP.Aplicacao.csproj", "{550618C0-6F74-4E54-AFCE-B1916B864B07}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://pegazuserp.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = PegazusERP.Aplicacao\\PegazusERP.Aplicacao.csproj
-		SccProjectName1 = PegazusERP.Aplicacao
-		SccLocalPath1 = PegazusERP.Aplicacao
-		SccProjectUniqueName2 = PegazusERP.Dominio\\PegazusERP.Dominio.csproj
-		SccProjectName2 = PegazusERP.Dominio
-		SccLocalPath2 = PegazusERP.Dominio
-		SccProjectUniqueName3 = PegazusERP.DTO\\PegazusERP.DTO.csproj
-		SccProjectName3 = PegazusERP.DTO
-		SccLocalPath3 = PegazusERP.DTO
-		SccProjectUniqueName4 = PegazusERP.Infraestrutura\\PegazusERP.Infraestrutura.csproj
-		SccProjectName4 = PegazusERP.Infraestrutura
-		SccLocalPath4 = PegazusERP.Infraestrutura
-		SccProjectUniqueName5 = PegazusERP.Web\\PegazusERP.Web.csproj
-		SccProjectName5 = PegazusERP.Web
-		SccLocalPath5 = PegazusERP.Web
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
