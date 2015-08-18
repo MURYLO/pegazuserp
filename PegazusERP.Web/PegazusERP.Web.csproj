@@ -923,6 +923,7 @@
     <Content Include="Content\smart\sound\voice_alert.ogg" />
     <Content Include="Content\smart\sound\voice_off.ogg" />
     <Content Include="Content\smart\sound\voice_on.ogg" />
+    <None Include="Properties\PublishProfiles\pegazusERP.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\colpick.js" />
     <Content Include="Scripts\globalize.cultures.js" />
